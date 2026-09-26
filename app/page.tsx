@@ -5,25 +5,19 @@ import {
   ArrowLeft,
   ArrowRight,
   Bot,
-  Braces,
   Check,
   ChevronRight,
   CircleGauge,
-  Database,
   FileCheck2,
   GitBranch,
   Hammer,
   KeyRound,
   Maximize2,
-  Network,
   Play,
   Printer,
   SearchCheck,
   ShieldCheck,
   Sparkles,
-  SquareTerminal,
-  Users,
-  Workflow,
   X,
 } from 'lucide-react';
 
@@ -38,35 +32,22 @@ type Slide = {
 
 const slides: Slide[] = [
   { label: 'Inicio', eyebrow: 'Tema 01 · Cultura de IA', title: 'Interacción con agentes', kind: 'cover' },
-  { label: 'Concepto', eyebrow: '01 · Empecemos por lo esencial', title: 'Un agente no es un modelo con otro nombre', kind: 'formula' },
-  { label: 'Interacción', eyebrow: '02 · El bucle de trabajo', title: 'Delegar no es desaparecer', kind: 'loop' },
-  { label: 'Componentes', eyebrow: '03 · Qué se construye realmente', title: 'Cinco piezas, no “magia”', kind: 'components' },
-  { label: 'Contrato', eyebrow: '04 · Dar contexto de calidad', title: 'Un buen encargo define los límites', kind: 'contract' },
-  { label: 'Dificultad', eyebrow: '05 · Separar los niveles', title: 'Configurar un agente no es crear una plataforma', kind: 'levels' },
-  { label: 'Equipo', eyebrow: '06 · La ventaja interna', title: 'El conocimiento del sistema es el activo', kind: 'knowledge' },
-  { label: 'Decisión', eyebrow: '07 · Construir, integrar o contratar', title: 'Comprar aceleración, no dependencia', kind: 'decision' },
-  { label: 'Preguntas', eyebrow: '08 · Evaluar una propuesta', title: 'Nueve preguntas que eliminan la ambigüedad', kind: 'questions' },
-  { label: 'Piloto', eyebrow: '09 · Siguiente paso', title: 'Aprender con un piloto controlado', kind: 'pilot' },
-  { label: 'Cierre', eyebrow: '10 · La idea que debe quedar', title: 'La capacidad debe permanecer en casa', kind: 'closing' },
-];
-
-const componentCards = [
-  { icon: Braces, number: '01', title: 'Instrucciones', text: 'Rol, objetivo, reglas y criterios de parada.' },
-  { icon: Network, number: '02', title: 'Integraciones', text: 'Repositorio, CI, incidencias y documentación.' },
-  { icon: Workflow, number: '03', title: 'Flujo', text: 'Analizar, proponer, cambiar, probar y entregar.' },
-  { icon: ShieldCheck, number: '04', title: 'Plataforma', text: 'Permisos, aislamiento, auditoría y costes.' },
-  { icon: Users, number: '05', title: 'Conocimiento', text: 'Contexto funcional, técnico y organizativo.' },
+  { label: 'Concepto', eyebrow: '01 · Qué es realmente', title: 'Un agente es una configuración especializada', kind: 'formula' },
+  { label: 'Interacción', eyebrow: '02 · Cómo trabajar con él', title: 'Delegar no es desaparecer', kind: 'loop' },
+  { label: 'Contrato', eyebrow: '03 · Dar contexto de calidad', title: 'Un buen encargo define los límites', kind: 'contract' },
+  { label: 'Dificultad', eyebrow: '04 · Separar los niveles', title: 'Un agente no es una plataforma corporativa', kind: 'levels' },
+  { label: 'Decisión', eyebrow: '05 · Construir o contratar', title: 'El conocimiento se queda; el proveedor acelera', kind: 'decision' },
+  { label: 'Preguntas', eyebrow: '06 · Evaluar una propuesta', title: 'Seis preguntas para saber qué compramos', kind: 'questions' },
+  { label: 'Piloto', eyebrow: '07 · Siguiente paso', title: 'Aprender con un piloto controlado', kind: 'pilot' },
+  { label: 'Cierre', eyebrow: '08 · La idea que debe quedar', title: 'La capacidad debe permanecer en casa', kind: 'closing' },
 ];
 
 const questions = [
-  '¿Qué modelo usa y quién lo opera?',
-  '¿Qué parte desarrolla el proveedor?',
-  '¿Qué datos salen de nuestra red?',
-  '¿Cómo se integra con GitLab y CI?',
-  '¿Entrega instrucciones, conectores y evaluaciones?',
-  '¿Recibimos el código fuente?',
-  '¿Podemos modificarlo sin el proveedor?',
-  '¿Qué sigue funcionando al terminar el contrato?',
+  '¿Qué modelo usa, quién lo opera y dónde van los datos?',
+  '¿Qué parte ha desarrollado realmente el proveedor?',
+  '¿Cómo se integra con GitLab, CI y nuestros permisos?',
+  '¿Entrega código, instrucciones, conectores y evaluaciones?',
+  '¿Podremos mantenerlo cuando termine el contrato?',
   '¿Por qué no podría construirlo el equipo interno?',
 ];
 
@@ -118,8 +99,8 @@ function SlideContent({ slide }: { slide: Slide }) {
             <span>Modelo</span><b>+</b><span>Instrucciones</span><b>+</b><span>Contexto</span><b>+</b><span>Herramientas</span><b>+</b><span>Validación</span>
           </div>
           <div className="myth-grid">
-            <article className="myth-card no"><X /><div><strong>No es</strong><p>Un modelo nuevo entrenado para cada aplicación ni una tecnología exclusiva del proveedor.</p></div></article>
-            <article className="myth-card yes"><Check /><div><strong>Sí es</strong><p>Una configuración especializada que actúa con acceso controlado y devuelve evidencia revisable.</p></div></article>
+            <article className="myth-card no"><X /><div><strong>No compramos “magia”</strong><p>No suele ser un modelo nuevo ni una tecnología exclusiva del proveedor.</p></div></article>
+            <article className="myth-card yes"><Check /><div><strong>Compramos una solución</strong><p>Instrucciones, integraciones, flujo de trabajo, seguridad y conocimiento aplicado.</p></div></article>
           </div>
         </div>
       )}
@@ -140,14 +121,6 @@ function SlideContent({ slide }: { slide: Slide }) {
             ))}
           </div>
           <blockquote>La persona conserva el juicio y la responsabilidad; el agente amplía la capacidad de ejecutar.</blockquote>
-        </div>
-      )}
-
-      {slide.kind === 'components' && (
-        <div className="component-grid">
-          {componentCards.map(({ icon: Icon, number, title, text }) => (
-            <article className="component-card" key={title}><div className="component-icon"><Icon /></div><span>{number}</span><h3>{title}</h3><p>{text}</p></article>
-          ))}
         </div>
       )}
 
@@ -172,28 +145,11 @@ function SlideContent({ slide }: { slide: Slide }) {
         </div>
       )}
 
-      {slide.kind === 'knowledge' && (
-        <div className="knowledge-layout">
-          <div className="knowledge-quote"><span>“</span><p>Quien conoce la aplicación sabe qué no puede romperse.</p></div>
-          <div className="knowledge-list">
-            {[
-              [Database, 'Decisiones históricas', 'Por qué el sistema es como es.'],
-              [GitBranch, 'Interfaces críticas', 'Qué contratos deben conservarse.'],
-              [SquareTerminal, 'Riesgos operativos', 'Qué cambios parecen simples y no lo son.'],
-              [FileCheck2, 'Criterios de aceptación', 'Cómo demostrar que el cambio es correcto.'],
-            ].map(([Icon, title, text]) => {
-              const IconComponent = Icon as typeof Database;
-              return <article key={String(title)}><IconComponent /><div><strong>{String(title)}</strong><p>{String(text)}</p></div></article>;
-            })}
-          </div>
-        </div>
-      )}
-
       {slide.kind === 'decision' && (
         <div className="decision-layout">
-          <article className="decision-card internal"><span>Base interna</span><h3>Debe quedarse</h3><ul><li>Conocimiento de las aplicaciones</li><li>Instrucciones y evaluaciones</li><li>Criterios de calidad y seguridad</li><li>Capacidad de mantenimiento</li></ul></article>
-          <div className="decision-bridge"><Hammer /><strong>El proveedor puede acelerar</strong><p>Implantación, integraciones, plataforma aislada o experiencia que hoy no existe.</p></div>
-          <article className="decision-card external"><span>Apoyo externo</span><h3>Tiene sentido si aporta</h3><ul><li>Integración en redes restringidas</li><li>Plataforma segura y auditable</li><li>Conocimiento de tecnología antigua</li><li>Transferencia real de conocimiento</li></ul></article>
+          <article className="decision-card internal"><span>Capacidad interna</span><h3>Debe quedarse</h3><ul><li>Conocimiento de las aplicaciones</li><li>Instrucciones, pruebas y evaluaciones</li><li>Criterios de calidad y seguridad</li><li>Capacidad de mantener y evolucionar</li></ul></article>
+          <div className="decision-bridge"><Hammer /><strong>La regla</strong><p>Contratar lo que acelera; conservar lo que crea dependencia.</p></div>
+          <article className="decision-card external"><span>Apoyo externo</span><h3>Puede aportar</h3><ul><li>Integración en redes restringidas</li><li>Plataforma segura y auditable</li><li>Especialización que hoy no existe</li><li>Transferencia real de conocimiento</li></ul></article>
         </div>
       )}
 

@@ -1,6 +1,6 @@
 # Notas para presentar · Interacción con agentes
 
-Duración orientativa: **20–25 minutos**, más conversación.
+Duración orientativa: **15–20 minutos**, más conversación.
 
 ## Apertura
 
