@@ -34,7 +34,7 @@ type Slide = {
 const slides: Slide[] = [
   { label: 'Inicio', eyebrow: 'Tema 01 · Cultura de IA', title: 'Interacción con agentes', kind: 'cover' },
   { label: 'Concepto', eyebrow: '01 · Qué es realmente', title: 'Un agente es una configuración especializada', kind: 'formula' },
-  { label: 'Interacción', eyebrow: '02 · Cómo trabajar con él', title: 'Delegar no es desaparecer', kind: 'loop' },
+  { label: 'Ejemplo', eyebrow: '02 · Cómo trabaja un agente', title: 'Consulta del tiempo con un agente de IA', kind: 'loop' },
   { label: 'Contrato', eyebrow: '03 · Dar contexto de calidad', title: 'Un buen encargo define los límites', kind: 'contract' },
   { label: 'Dificultad', eyebrow: '04 · Separar los niveles', title: 'Un agente no es una plataforma corporativa', kind: 'levels' },
   { label: 'Decisión', eyebrow: '05 · Construir o contratar', title: 'El conocimiento se queda; el proveedor acelera', kind: 'decision' },
@@ -110,18 +110,18 @@ function SlideContent({ slide }: { slide: Slide }) {
         <div className="loop-layout">
           <div className="loop-track">
             {[
-              ['1', 'Objetivo', 'Qué resultado buscamos'],
-              ['2', 'Plan', 'Cómo piensa abordarlo'],
-              ['3', 'Acción', 'Usa herramientas con límites'],
-              ['4', 'Verificación', 'Pruebas y controles'],
-              ['5', 'Informe', 'Cambios, riesgos y dudas'],
+              ['1', 'Solicitud', '¿Qué tiempo hace en Madrid?'],
+              ['2', 'Decisión', 'El modelo pide get_weather("Madrid")'],
+              ['3', 'Ejecución', 'La aplicación valida y llama a la herramienta'],
+              ['4', 'Datos', 'El servicio devuelve el tiempo actual'],
+              ['5', 'Respuesta', 'El modelo interpreta los datos y responde'],
             ].map(([number, title, text], index) => (
               <article className="loop-step" key={title}>
                 <span>{number}</span><div><strong>{title}</strong><p>{text}</p></div>{index < 4 && <ChevronRight aria-hidden="true" />}
               </article>
             ))}
           </div>
-          <blockquote>La persona conserva el juicio y la responsabilidad; el agente amplía la capacidad de ejecutar.</blockquote>
+          <blockquote>El modelo decide el siguiente paso. La aplicación lo valida y lo ejecuta. La herramienta aporta los datos.</blockquote>
         </div>
       )}
 
