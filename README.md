@@ -24,6 +24,10 @@ pnpm dev
 
 Después, abre `http://localhost:3000`.
 
+## Ejemplo ejecutable
+
+El primer tema incluye un [agente creador de proyectos Python](temas/01-interaccion-con-agentes/ejemplos/agente-creador-proyectos/README.md). Recibe una orden como `Crear el proyecto inventario-api` y genera una estructura completa con paquete `src`, pruebas, documentación, CI y contrato `AGENTS.md`.
+
 ## Publicar con GitHub Pages
 
 El repositorio incluye el flujo [`.github/workflows/pages.yml`](.github/workflows/pages.yml). En GitHub:
@@ -42,7 +46,10 @@ GitHub construirá y publicará el sitio. La ruta se ajusta automáticamente al 
 ├── temas/
 │   └── 01-interaccion-con-agentes/
 │       ├── README.md            # Documento principal
-│       └── notas-presentador.md # Guion breve
+│       ├── notas-presentador.md # Guion breve
+│       └── ejemplos/
+│           └── agente-creador-proyectos/ # Ejemplo ejecutable en Python
+├── output/pdf/                  # Presentación descargable
 └── .github/workflows/pages.yml  # Publicación automática
 ```
 

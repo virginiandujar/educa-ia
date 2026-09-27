@@ -86,6 +86,16 @@ Cambio propuesto, pruebas ejecutadas, riesgos y dudas pendientes.
 
 Esto ya constituye la base de un agente especializado. No exige entrenar un modelo ni construir una plataforma corporativa completa.
 
+## Ejemplo ejecutable en Python
+
+El directorio [`ejemplos/agente-creador-proyectos`](ejemplos/agente-creador-proyectos/README.md) contiene un agente pequeño que recibe una instrucción como:
+
+```text
+Crear el proyecto inventario-api
+```
+
+El agente interpreta la orden, valida el nombre, prepara un plan y crea de forma segura una estructura Python con código, pruebas, documentación, integración continua y un contrato `AGENTS.md`. No utiliza un modelo de lenguaje porque esta intención es suficientemente concreta; eso permite separar con claridad el razonamiento de la herramienta que modifica archivos.
+
 ## Tres niveles de dificultad
 
 | Resultado | Orden de magnitud | Dificultad | Participantes |
