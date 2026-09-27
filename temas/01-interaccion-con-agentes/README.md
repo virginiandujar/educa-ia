@@ -86,15 +86,23 @@ Cambio propuesto, pruebas ejecutadas, riesgos y dudas pendientes.
 
 Esto ya constituye la base de un agente especializado. No exige entrenar un modelo ni construir una plataforma corporativa completa.
 
-## Ejemplo ejecutable en Python
+## Ejemplos ejecutables en Python
 
-El directorio [`ejemplos/agente-creador-proyectos`](ejemplos/agente-creador-proyectos/README.md) contiene un agente pequeño que recibe una instrucción como:
+El directorio [`ejemplos`](ejemplos/README.md) permite comparar dos soluciones.
+
+### Automatización determinista
+
+[`agente-creador-proyectos`](ejemplos/agente-creador-proyectos/README.md) recibe una instrucción fija como:
 
 ```text
 Crear el proyecto inventario-api
 ```
 
-El agente interpreta la orden, valida el nombre, prepara un plan y crea de forma segura una estructura Python con código, pruebas, documentación, integración continua y un contrato `AGENTS.md`. No utiliza un modelo de lenguaje porque esta intención es suficientemente concreta; eso permite separar con claridad el razonamiento de la herramienta que modifica archivos.
+La automatización valida el nombre y aplica una plantilla. Es útil y segura, pero no es un agente de IA porque no existe un modelo que interprete requisitos o decida herramientas.
+
+### Agente de IA
+
+[`agente-ia-creador-proyectos`](ejemplos/agente-ia-creador-proyectos/README.md) acepta una descripción libre. Un modelo prepara el plan y decide cuándo crear, leer o corregir archivos y cuándo ejecutar pruebas. Las herramientas siguen siendo deterministas, están limitadas al directorio de salida y no permiten ejecutar comandos arbitrarios.
 
 ## Tres niveles de dificultad
 

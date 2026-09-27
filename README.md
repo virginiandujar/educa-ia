@@ -26,7 +26,10 @@ Después, abre `http://localhost:3000`.
 
 ## Ejemplo ejecutable
 
-El primer tema incluye un [agente creador de proyectos Python](temas/01-interaccion-con-agentes/ejemplos/agente-creador-proyectos/README.md). Recibe una orden como `Crear el proyecto inventario-api` y genera una estructura completa con paquete `src`, pruebas, documentación, CI y contrato `AGENTS.md`.
+El primer tema incluye dos implementaciones comparables:
+
+- Un [generador determinista](temas/01-interaccion-con-agentes/ejemplos/agente-creador-proyectos/README.md), que reconoce una orden fija y aplica una plantilla segura.
+- Un [agente de IA](temas/01-interaccion-con-agentes/ejemplos/agente-ia-creador-proyectos/README.md), que interpreta lenguaje natural, planifica, elige herramientas, ejecuta pruebas y puede corregir el proyecto.
 
 ## Publicar con GitHub Pages
 
@@ -48,7 +51,8 @@ GitHub construirá y publicará el sitio. La ruta se ajusta automáticamente al 
 │       ├── README.md            # Documento principal
 │       ├── notas-presentador.md # Guion breve
 │       └── ejemplos/
-│           └── agente-creador-proyectos/ # Ejemplo ejecutable en Python
+│           ├── agente-creador-proyectos/    # Automatización determinista
+│           └── agente-ia-creador-proyectos/ # Agente con modelo y herramientas
 ├── output/pdf/                  # Presentación descargable
 └── .github/workflows/pages.yml  # Publicación automática
 ```

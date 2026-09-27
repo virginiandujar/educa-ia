@@ -1,12 +1,12 @@
-# Agente creador de proyectos Python
+# Generador determinista de proyectos Python
 
-Ejemplo didáctico de un agente pequeño que transforma una instrucción concreta en una acción verificable:
+Ejemplo didáctico de una automatización que transforma una instrucción concreta en una acción verificable:
 
 ```text
 Crear el proyecto inventario-api
 ```
 
-No usa un modelo de lenguaje. Para una orden tan acotada, un intérprete determinista es más barato, rápido y predecible. El diseño deja visible el mismo ciclo que usaría un agente basado en un modelo:
+No es un agente de IA porque no usa un modelo para razonar ni elegir herramientas. Para una orden tan acotada, un intérprete determinista es más barato, rápido y predecible. El diseño deja visibles varias piezas que también utilizaría un agente:
 
 1. **Entender:** reconoce la intención y extrae el nombre.
 2. **Validar:** rechaza rutas, nombres peligrosos e instrucciones desconocidas.
