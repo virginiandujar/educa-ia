@@ -43,6 +43,7 @@ jobs:
           repository_name="${GITHUB_REPOSITORY#*/}"
           mv "dist/client/${repository_name}/_next" dist/client/_next
           rmdir "dist/client/${repository_name}"
+          cp output/pdf/interaccion-con-agentes.pdf dist/client/interaccion-con-agentes.pdf
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5

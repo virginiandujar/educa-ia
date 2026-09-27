@@ -22,7 +22,7 @@ import {
   X,
 } from 'lucide-react';
 
-import { Button } from '@/components/ui/button';
+import { Button, buttonVariants } from '@/components/ui/button';
 
 type Slide = {
   label: string;
@@ -228,7 +228,7 @@ export default function Home() {
         <button className="brand" onClick={() => goTo(0)} aria-label="Educa IA, volver al inicio"><span className="brand-mark"><Sparkles aria-hidden="true" /></span><span>Educa IA</span></button>
         <span className="topic-label">Interacción con agentes</span>
         <div className="top-actions">
-          <Button className="print-button" variant="ghost" onClick={() => window.print()} aria-label="Imprimir o guardar como PDF"><Printer /><span>PDF</span></Button>
+          <a className={`${buttonVariants({ variant: 'ghost' })} print-button`} href="./interaccion-con-agentes.pdf" download aria-label="Descargar presentación en PDF"><Printer /><span>PDF</span></a>
           <Button className="fullscreen-button" variant="ghost" onClick={toggleFullscreen} aria-label={isFullscreen ? 'Salir de pantalla completa' : 'Ver a pantalla completa'} aria-pressed={isFullscreen}>
             {isFullscreen ? <Minimize2 /> : <Maximize2 />}<span>{isFullscreen ? 'Salir' : 'Pantalla completa'}</span>
           </Button>

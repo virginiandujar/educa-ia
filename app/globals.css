@@ -281,11 +281,26 @@ h1 { max-width: 780px; margin: 0; font-family: Georgia, "Times New Roman", serif
 }
 
 @media print {
-  @page { size: landscape; margin: 0; }
+  @page { size: 13.333in 7.5in; margin: 0; }
   .presentation-shell { display: block; min-height: auto; background: white; }
   .topbar, .stage, .controls { display: none !important; }
   .print-deck { display: block; }
-  .slide { min-height: 100vh; break-after: page; padding: 4vw; background: var(--paper); }
+  .print-deck .slide { height: 100vh; min-height: 0; overflow: hidden; break-inside: avoid; break-after: page; padding: 3vw; background: var(--paper); }
+  .print-deck .slide:last-child { break-after: auto; }
+  .print-deck .content-slide { justify-content: flex-start; }
+  .print-deck .slide-heading { margin-bottom: 1.5rem; }
+  .print-deck .slide-cover { grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr); }
+  .print-deck .agent-orbit { width: min(82%, 390px); }
+  .print-deck .loop-track { grid-template-columns: repeat(5, 1fr); }
+  .print-deck .loop-step > svg { display: block; }
+  .print-deck .contract-layout { grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr); }
+  .print-deck .decision-layout { grid-template-columns: 1fr minmax(150px, .5fr) 1fr; }
+  .print-deck .decision-bridge { min-height: 0; }
+  .print-deck .decision-card { padding: 1rem; }
+  .print-deck .decision-card h3 { margin-bottom: .7rem; }
+  .print-deck .decision-card ul { gap: .45rem; }
+  .print-deck .question-grid { grid-template-columns: repeat(3, 1fr); }
+  .print-deck .pilot-layout { grid-template-columns: minmax(0, 1.3fr) minmax(230px, .7fr); }
 }
 
 @media (prefers-reduced-motion: reduce) {
