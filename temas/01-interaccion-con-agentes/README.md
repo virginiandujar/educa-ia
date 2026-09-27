@@ -27,6 +27,68 @@ El ciclo recomendable es:
 
 La persona no desaparece del proceso. Conserva el criterio, decide los límites y asume la responsabilidad del resultado.
 
+## Ejemplo paso a paso: consultar el tiempo
+
+Supongamos que una persona pregunta al agente:
+
+> ¿Qué tiempo hace en Madrid?
+
+El flujo simplificado sería:
+
+```text
+Persona
+  │  "¿Qué tiempo hace en Madrid?"
+  ▼
+Aplicación del agente
+  │  Envía al modelo la petición, las instrucciones y
+  │  la lista de herramientas disponibles.
+  ▼
+Modelo de IA
+  │  Decide que necesita información actual y solicita:
+  │  get_weather(location="Madrid")
+  ▼
+Aplicación del agente
+  │  Comprueba que la acción está permitida y ejecuta la herramienta.
+  ▼
+Servicio meteorológico
+  │  Devuelve datos estructurados: temperatura, estado del cielo, etc.
+  ▼
+Aplicación del agente
+  │  Incorpora el resultado a la conversación.
+  ▼
+Modelo de IA
+  │  Interpreta los datos y redacta una respuesta comprensible.
+  ▼
+Persona
+```
+
+El modelo puede solicitar la herramienta mediante una instrucción estructurada parecida a esta:
+
+```json
+{
+  "name": "get_weather",
+  "arguments": {
+    "location": "Madrid"
+  }
+}
+```
+
+El modelo no ejecuta por sí mismo la función ni consulta directamente el servicio meteorológico. Es la aplicación del agente la que valida la petición, llama a la herramienta y devuelve el resultado al modelo. Si la tarea necesita más información, este ciclo puede repetirse varias veces antes de generar la respuesta final.
+
+En este ejemplo, cada pieza tiene una responsabilidad:
+
+- **El modelo** interpreta la solicitud y decide el siguiente paso.
+- **Las instrucciones** definen su objetivo, sus límites y cómo debe responder.
+- **La herramienta** obtiene los datos del tiempo mediante una operación programada.
+- **La aplicación del agente** coordina el ciclo, conserva el contexto y ejecuta las acciones.
+- **Los controles** validan permisos, parámetros y resultados.
+
+Por eso, una fórmula más completa sería:
+
+> **Agente de IA = modelo + instrucciones + contexto + herramientas + ciclo de ejecución + controles**
+
+En informática también existen agentes sin IA, capaces de actuar siguiendo reglas fijas. Para evitar ambigüedades, en este material llamamos **agente de IA** al sistema que incorpora un modelo para interpretar, decidir o adaptar sus pasos; si todo el recorrido está definido de antemano, hablamos de **automatización** o **flujo de trabajo**.
+
 ## Qué se construye realmente
 
 Cuando una empresa ofrece “agentes”, normalmente combina cinco piezas.

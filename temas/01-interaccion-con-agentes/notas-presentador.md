@@ -14,6 +14,20 @@ Preguntar: “Cuando oís *agente*, ¿pensáis en un modelo distinto, en un chat
 4. **El conocimiento interno es el activo.** La configuración del agente captura decisiones y restricciones del sistema.
 5. **Un proveedor puede acelerar.** Debe dejar capacidad, código y conocimiento, no una dependencia permanente.
 
+## Ejemplo rápido: consultar el tiempo
+
+Usar la pregunta “¿Qué tiempo hace en Madrid?” para recorrer el flujo completo:
+
+1. La aplicación entrega al modelo la petición, las instrucciones y las herramientas disponibles.
+2. El modelo solicita una llamada estructurada a `get_weather`.
+3. La aplicación comprueba los permisos y ejecuta la herramienta.
+4. El servicio devuelve datos y la aplicación se los pasa al modelo.
+5. El modelo interpreta el resultado y redacta la respuesta final.
+
+Frase para resumirlo: **el modelo decide el siguiente paso; la aplicación lo valida y lo ejecuta; la herramienta aporta los datos**.
+
+Conviene aclarar que el modelo no ejecuta la función directamente. También puede haber varias vueltas si necesita más datos. Si no interviene un modelo y todos los pasos están prefijados, es más preciso hablar de automatización, aunque en informática el término *agente* también pueda usarse en un sentido más amplio.
+
 ## Pausas para conversación
 
 - Tras el ciclo de interacción: pedir un ejemplo de tarea que requiera aprobación humana.
