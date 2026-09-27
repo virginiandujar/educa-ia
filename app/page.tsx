@@ -13,6 +13,7 @@ import {
   Hammer,
   KeyRound,
   Maximize2,
+  Minimize2,
   Play,
   Printer,
   SearchCheck,
@@ -182,8 +183,27 @@ function SlideContent({ slide }: { slide: Slide }) {
 
 export default function Home() {
   const [current, setCurrent] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
   const activeSlide = useMemo(() => slides[current], [current]);
   const goTo = (index: number) => setCurrent(Math.max(0, Math.min(slides.length - 1, index)));
+
+  const toggleFullscreen = async () => {
+    if (document.fullscreenElement) {
+      await document.exitFullscreen();
+      return;
+    }
+
+    if (document.documentElement.requestFullscreen) {
+      try {
+        await document.documentElement.requestFullscreen();
+        return;
+      } catch {
+        // Algunos navegadores integrados bloquean la API nativa.
+      }
+    }
+
+    setIsFullscreen((value) => !value);
+  };
 
   useEffect(() => {
     const handleKey = (event: KeyboardEvent) => {
@@ -191,19 +211,27 @@ export default function Home() {
       if (['ArrowLeft', 'PageUp'].includes(event.key)) { event.preventDefault(); setCurrent((value) => Math.max(value - 1, 0)); }
       if (event.key === 'Home') setCurrent(0);
       if (event.key === 'End') setCurrent(slides.length - 1);
+      if (event.key === 'Escape') setIsFullscreen(false);
     };
+    const handleFullscreenChange = () => setIsFullscreen(Boolean(document.fullscreenElement));
     window.addEventListener('keydown', handleKey);
-    return () => window.removeEventListener('keydown', handleKey);
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => {
+      window.removeEventListener('keydown', handleKey);
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    };
   }, []);
 
   return (
-    <main className="presentation-shell">
+    <main className={isFullscreen ? 'presentation-shell is-fullscreen' : 'presentation-shell'}>
       <header className="topbar">
         <button className="brand" onClick={() => goTo(0)} aria-label="Educa IA, volver al inicio"><span className="brand-mark"><Sparkles aria-hidden="true" /></span><span>Educa IA</span></button>
         <span className="topic-label">Interacción con agentes</span>
         <div className="top-actions">
           <Button className="print-button" variant="ghost" onClick={() => window.print()} aria-label="Imprimir o guardar como PDF"><Printer /><span>PDF</span></Button>
-          <Button className="fullscreen-button" variant="ghost" onClick={() => document.documentElement.requestFullscreen?.()} aria-label="Ver a pantalla completa"><Maximize2 /><span>Pantalla completa</span></Button>
+          <Button className="fullscreen-button" variant="ghost" onClick={toggleFullscreen} aria-label={isFullscreen ? 'Salir de pantalla completa' : 'Ver a pantalla completa'} aria-pressed={isFullscreen}>
+            {isFullscreen ? <Minimize2 /> : <Maximize2 />}<span>{isFullscreen ? 'Salir' : 'Pantalla completa'}</span>
+          </Button>
         </div>
       </header>
 
